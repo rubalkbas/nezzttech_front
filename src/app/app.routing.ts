@@ -47,22 +47,14 @@ export const appRoutes: Route[] = [
             layout: 'empty'
         },
         children: [
+   
             {path: 'sign-out', loadChildren: () => import('app/modules/auth/sign-out/sign-out.module').then(m => m.AuthSignOutModule)},
             {path: 'unlock-session', loadChildren: () => import('app/modules/auth/unlock-session/unlock-session.module').then(m => m.AuthUnlockSessionModule)}
         ]
+       
+
     },
 
-    // Landing routes
-    {
-        path: '',
-        component  : LayoutComponent,
-        data: {
-            layout: 'empty'
-        },
-        children   : [
-            {path: 'home', loadChildren: () => import('app/modules/landing/home/home.module').then(m => m.LandingHomeModule)},
-        ]
-    },
 
     // Admin routes
     {
@@ -74,6 +66,9 @@ export const appRoutes: Route[] = [
             initialData: InitialDataResolver,
         },
         children   : [
+            {path: 'nezttech', children: [
+                {path: 'scrumboard', loadChildren: () => import('app/scrumboard/scrumboard.module').then(m => m.ScrumboardModule)},
+            ]},
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
         ]
     }

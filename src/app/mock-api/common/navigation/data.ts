@@ -8,8 +8,16 @@ export const defaultNavigation: FuseNavigationItem[] = [
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/example'
-    }
+    },
+    {
+        id   : 'apps.scrumboard',
+        title: 'Scrumboard',
+        type : 'basic',
+        icon : 'heroicons_outline:view-boards',
+        link : '/nezttech/scrumboard'
+    },
 ];
+
 export const compactNavigation: FuseNavigationItem[] = [
     {
         id   : 'example',
