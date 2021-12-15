@@ -1,8 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject, catchError, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
 import { Board, Card, Label, List } from 'app/scrumboard/scrumboard.models';
 
+
+const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+  
+
+  
+  
 @Injectable({
     providedIn: 'root'
 })
@@ -61,14 +69,27 @@ export class ScrumboardService
     /**
      * Get boards
      */
-    getBoards(): Observable<Board[]>
+    getBoards(): Observable<any>
     {
-        return this._httpClient.get<Board[]>('api/apps/scrumboard/boards').pipe(
-            map(response => response.map(item => new Board(item))),
-            tap(boards => this._boards.next(boards))
+        return this._httpClient.get<any>('http://localhost:8084/pizarras/consultaPizarras',  httpOptions).pipe(
+
+            catchError(this.error)
+
         );
     }
-
+    
+    
+ public login(request): Observable<any> {
+    // return this.http.post( 'http://localhost:8084/authentication/signin', {+
+   
+     return this._httpClient.get('seguridad-angular-rest/api/login/determinaLogin',  httpOptions).pipe(
+       catchError(this.error)
+   
+  
+     );
+    }
+  
+    
     /**
      * Get board
      *
@@ -604,4 +625,18 @@ export class ScrumboardService
         // @TODO: Update the board cards based on the search results
         return this._httpClient.get<Card[] | null>('api/apps/scrumboard/board/search', {params: {query}});
     }
+
+     // Handle Errors 
+     error(error: HttpErrorResponse) {
+        let errorMessage = '';
+        if (error.error instanceof ErrorEvent) {
+            errorMessage = error.error.message;
+        } else {
+            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+        }
+        console.log(error);
+        return throwError(errorMessage);
+    }
+
+    
 }

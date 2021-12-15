@@ -3,7 +3,7 @@ import * as moment from 'moment';
 
 export const boards = [
     {
-        id          : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        id          : '1',
         title       : 'Admin Dashboard',
         description : 'Roadmap for the new project',
         icon        : 'heroicons_outline:template',
@@ -45,25 +45,25 @@ export const boards = [
 export const lists = [
     {
         id      : 'a2df7786-519c-485a-a85f-c09a61cc5f37',
-        boardId : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId : '1',
         position: 65536,
         title   : 'To do'
     },
     {
         id      : '83ca2a34-65af-49c0-a42e-94a34003fcf2',
-        boardId : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId : '1',
         position: 131072,
         title   : 'In progress'
     },
     {
         id      : 'a85ea483-f8f7-42d9-a314-3fed6aac22ab',
-        boardId : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId : '1',
         position: 196608,
         title   : 'In review'
     },
     {
         id      : '34cbef38-5687-4813-bd66-141a6df6d832',
-        boardId : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId : '1',
         position: 262144,
         title   : 'Completed'
     }
@@ -71,7 +71,7 @@ export const lists = [
 export const cards = [
     {
         id         : 'e74e66e9-fe0f-441e-a8ce-28ed6eccc48d',
-        boardId    : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId    : '1',
         listId     : 'a2df7786-519c-485a-a85f-c09a61cc5f37',
         position   : 65536,
         title      : 'Example that showcase all of the available bits on the card with a fairly long title compared to other cards',
@@ -87,7 +87,7 @@ export const cards = [
     },
     {
         id      : 'ed58add1-45a7-41db-887d-3ca7ee7f2719',
-        boardId : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId : '1',
         listId  : 'a2df7786-519c-485a-a85f-c09a61cc5f37',
         position: 131072,
         title   : 'Do a research about most needed admin applications',
@@ -98,7 +98,7 @@ export const cards = [
     },
     {
         id      : 'cd6897cb-acfd-4016-8b53-3f66a5b5fc68',
-        boardId : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId : '1',
         listId  : 'a2df7786-519c-485a-a85f-c09a61cc5f37',
         position: 196608,
         title   : 'Implement the Project dashboard',
@@ -109,7 +109,7 @@ export const cards = [
     },
     {
         id      : '6da8747f-b474-4c9a-9eba-5ef212285500',
-        boardId : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId : '1',
         listId  : 'a2df7786-519c-485a-a85f-c09a61cc5f37',
         position: 262144,
         title   : 'Implement the Analytics dashboard',
@@ -120,7 +120,7 @@ export const cards = [
     },
     {
         id      : '94fb1dee-dd83-4cca-acdd-02e96d3cc4f1',
-        boardId : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId : '1',
         listId  : '83ca2a34-65af-49c0-a42e-94a34003fcf2',
         position: 65536,
         title   : 'Analytics dashboard design',
@@ -131,7 +131,7 @@ export const cards = [
     },
     {
         id      : 'fc16f7d8-957d-43ed-ba85-20f99b5ce011',
-        boardId : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId : '1',
         listId  : '83ca2a34-65af-49c0-a42e-94a34003fcf2',
         position: 131072,
         title   : 'Project dashboard design',
@@ -142,7 +142,7 @@ export const cards = [
     },
     {
         id      : 'c0b32f1f-64ec-4f8d-8b11-a8dc809df331',
-        boardId : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId : '1',
         listId  : 'a85ea483-f8f7-42d9-a314-3fed6aac22ab',
         position: 65536,
         title   : 'JWT Auth implementation',
@@ -153,7 +153,7 @@ export const cards = [
     },
     {
         id      : '532c2747-be79-464a-9897-6a682bf22b64',
-        boardId : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId : '1',
         listId  : '34cbef38-5687-4813-bd66-141a6df6d832',
         position: 65536,
         title   : 'Create low fidelity wireframes',
@@ -162,7 +162,7 @@ export const cards = [
     },
     {
         id      : '1d908efe-c830-476e-9e87-d06e30d89bc2',
-        boardId : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId : '1',
         listId  : '34cbef38-5687-4813-bd66-141a6df6d832',
         position: 131072,
         title   : 'Create high fidelity wireframes',
@@ -171,7 +171,7 @@ export const cards = [
     },
     {
         id      : 'b1da11ed-7896-4826-962d-4b7b718896d4',
-        boardId : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId : '1',
         listId  : '34cbef38-5687-4813-bd66-141a6df6d832',
         position: 196608,
         title   : 'Collect information about most used admin layouts',
@@ -182,7 +182,7 @@ export const cards = [
     },
     {
         id      : '3b7f3ceb-107f-42bc-a204-c268c9a56cb4',
-        boardId : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId : '1',
         listId  : '34cbef38-5687-4813-bd66-141a6df6d832',
         position: 262144,
         title   : 'Do a research about latest UI trends',
@@ -193,7 +193,7 @@ export const cards = [
     },
     {
         id      : 'cd7f01c5-a941-4076-8cef-37da0354e643',
-        boardId : '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId : '1',
         listId  : '34cbef38-5687-4813-bd66-141a6df6d832',
         position: 327680,
         title   : 'Learn more about UX',
@@ -206,27 +206,27 @@ export const cards = [
 export const labels = [
     {
         id     : 'e0175175-2784-48f1-a519-a1d2e397c9b3',
-        boardId: '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId: '1',
         title  : 'Research'
     },
     {
         id     : '51779701-818a-4a53-bc16-137c3bd7a564',
-        boardId: '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId: '1',
         title  : 'Wireframing'
     },
     {
         id     : 'e8364d69-9595-46ce-a0f9-ce428632a0ac',
-        boardId: '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId: '1',
         title  : 'Design'
     },
     {
         id     : 'caff9c9b-a198-4564-b1f4-8b3df1d345bb',
-        boardId: '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId: '1',
         title  : 'Development'
     },
     {
         id     : 'f9eeb436-13a3-4208-a239-0d555960a567',
-        boardId: '2c82225f-2a6c-45d3-b18a-1132712a4234',
+        boardId: '1',
         title  : 'Bug'
     }
 ];

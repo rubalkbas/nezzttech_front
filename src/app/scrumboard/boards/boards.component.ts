@@ -12,7 +12,8 @@ import { ScrumboardService } from 'app/scrumboard/scrumboard.service';
 })
 export class ScrumboardBoardsComponent implements OnInit, OnDestroy
 {
-    boards: Board[];
+    boards: any;
+    users: any;
 
     // Private
     private _unsubscribeAll: Subject<any> = new Subject<any>();
@@ -37,14 +38,18 @@ export class ScrumboardBoardsComponent implements OnInit, OnDestroy
     ngOnInit(): void
     {
         // Get the boards
-        this._scrumboardService.boards$
-            .pipe(takeUntil(this._unsubscribeAll))
-            .subscribe((boards: Board[]) => {
-                this.boards = boards;
+        this._scrumboardService.getBoards().subscribe( 
+             data => {
+                 this.boards = data.lista;
+                 this.users = data.lista.usuarios;
+    // Mark for check
+    this._changeDetectorRef.markForCheck();
+    
+               console.log(this.boards);
 
-                // Mark for check
-                this._changeDetectorRef.markForCheck();
             });
+
+            
     }
 
     /**
@@ -79,6 +84,6 @@ export class ScrumboardBoardsComponent implements OnInit, OnDestroy
      */
     trackByFn(index: number, item: any): any
     {
-        return item.id || index;
+        return item.usuarioDetalle.idUsuario || index;
     }
 }
