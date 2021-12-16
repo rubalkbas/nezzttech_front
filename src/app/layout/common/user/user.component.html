@@ -15,7 +15,7 @@
             [ngClass]="{'mr-px mb-px': !showAvatar || !user.avatar,
                           'bg-green-500': user.status === 'online',
                           'bg-amber-500': user.status === 'away',
-                          'bg-red-500': user.status === 'busy',
+                          'bg-red-600': user.status === 'busy',
                           'bg-gray-400': user.status === 'not-visible'}"
         ></span>
     </span>
@@ -72,7 +72,7 @@
     <button
         mat-menu-item
         (click)="updateUserStatus('busy')">
-        <span class="w-4 h-4 mr-3 rounded-full bg-red-500"></span>
+        <span class="w-4 h-4 mr-3 rounded-full bg-red-600"></span>
         <span>Busy</span>
     </button>
     <button
