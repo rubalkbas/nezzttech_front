@@ -3,19 +3,19 @@
 
 <!-- Navigation -->
 <fuse-vertical-navigation
-    class="dark bg-red-600 print:hidden"
+    class="dark bg-zinc-800 print:hidden"
     [mode]="isScreenSmall ? 'over' : 'side'"
     [name]="'mainNavigation'"
     [navigation]="navigation.default"
     [opened]="!isScreenSmall">
     <!-- Navigation header hook -->
     <ng-container fuseVerticalNavigationContentHeader>
-        <div class="dark bg-zinc-800 flex items-center w-full p-4 pl-6">
+        <div class="dark bg-red-600 flex items-center w-full p-4 pl-6">
             <!-- Logo -->
             <div class="flex items-center justify-center">
                 <img
-                    class="w-8"
-                    src="assets/images/logo/logo.svg">
+                    class="w-80"
+                    src="assets/images/logo/logo.png">
             </div>
             <!-- Components -->
             <div class="flex items-center ml-auto">
@@ -51,16 +51,16 @@
         <div class="flex flex-0 items-center justify-center h-16 pr-6 pl-2 mt-2 mb-4 opacity-12">
             <img
                 class="max-w-36"
-                src="assets/images/logo/logo-text-on-dark.svg">
+                src="assets/images/logo/logo.png">
         </div>
     </ng-container>
 </fuse-vertical-navigation>
 
 <!-- Wrapper -->
-<div class="dark:bg-zinc-800 flex flex-col flex-auto  min-w-0">
+<div class="dark:bg-red-600 flex flex-col flex-auto  min-w-0">
 
     <!-- Header -->
-    <div class="dark bg-zinc-800 flex items-center w-full p-4 pl-6">
+    <div class="dark bg-red-600 flex items-center w-full p-4 pl-6">
         <!-- Navigation toggle button -->
         <button
             mat-icon-button
@@ -74,12 +74,7 @@
             <search [appearance]="'bar'"></search>
             <shortcuts></shortcuts>
             <messages></messages>
-            <button
-                class="lg:hidden"
-                mat-icon-button
-                (click)="quickChat.toggle()">
-                <mat-icon [svgIcon]="'heroicons_outline:chat-alt-2'"></mat-icon>
-            </button>
+           
         </div>
     </div>
 
@@ -98,4 +93,3 @@
 </div>
 
 <!-- Quick chat -->
-<quick-chat #quickChat="quickChat"></quick-chat>
