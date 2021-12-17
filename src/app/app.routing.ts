@@ -66,10 +66,13 @@ export const appRoutes: Route[] = [
             initialData: InitialDataResolver,
         },
         children   : [
-            {path: 'nezttech', children: [
+            {path: 'peticionario', children: [
                 {path: 'scrumboard', loadChildren: () => import('app/scrumboard/scrumboard.module').then(m => m.ScrumboardModule)},
+                {path: 'asuntos', loadChildren: () => import('app/usuario/usuario.module' ).then(m => m.UsuariosModule)},
             ]},
+
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
+     
         ]
     }
 ];

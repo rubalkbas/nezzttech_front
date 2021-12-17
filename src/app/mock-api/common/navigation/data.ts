@@ -4,17 +4,38 @@ import { FuseNavigationItem } from '@fuse/components/navigation';
 export const defaultNavigation: FuseNavigationItem[] = [
     {
         id   : 'example',
-        title: 'Example',
+        title: 'Ejemplo vacio',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
         link : '/example'
     },
     {
         id   : 'apps.scrumboard',
-        title: 'Scrumboard',
+        title: 'Alta Asuntos',
         type : 'basic',
         icon : 'heroicons_outline:view-boards',
-        link : '/nezttech/scrumboard'
+        link : '/peticionario/asuntos'
+    },
+    {
+        id   : 'apps.scrumboard',
+        title: 'Busqueda de Asuntos',
+        type : 'basic',
+        icon : 'heroicons_outline:view-boards',
+        link : '/peticionario/scrumboard'
+    },
+    {
+        id   : 'apps.scrumboard',
+        title: 'Busqueda de quejas',
+        type : 'basic',
+        icon : 'heroicons_outline:view-boards',
+        link : '/peticionario/scrumboard'
+    },
+    {
+        id   : 'apps.scrumboard',
+        title: 'Buscador de soluciones',
+        type : 'basic',
+        icon : 'heroicons_outline:view-boards',
+        link : '/peticionario/scrumboard'
     },
 ];
 

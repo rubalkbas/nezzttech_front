@@ -3,8 +3,8 @@ import { Component, OnInit } from "@angular/core";
 
 @Component({
     selector: "app-empleados",
-    templateUrl: "./empleados.componet.html",
-    styleUrls: ["./empleados.componet.scss"],
+    templateUrl: "./usuario.component.html",
+    styleUrls: ["./usuario.component.scss"],
   })
 export class UsuarioComponent implements OnInit {
 
