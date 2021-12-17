@@ -1,6 +1,7 @@
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/compiler";
 import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCheckboxModule } from "@angular/material/checkbox";
@@ -18,12 +19,11 @@ import { SharedModule } from "app/shared/shared.module";
 import moment from "moment";
 import { UsuarioComponent } from "./usuario.component";
 import { usuariosRoutes } from "./usuario.routing";
-
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
-    declarations: [
-        UsuarioComponent
-    ],
+    declarations: [ UsuarioComponent ], 
+    bootstrap:    [ UsuarioComponent ],
     imports     : [
         RouterModule.forChild(usuariosRoutes),
         DragDropModule,
@@ -38,6 +38,8 @@ import { usuariosRoutes } from "./usuario.routing";
         MatMomentDateModule,
         MatProgressBarModule,
         SharedModule,
+        FormsModule,
+        MatCardModule
         
     ],
     providers   : [
@@ -55,7 +57,7 @@ import { usuariosRoutes } from "./usuario.routing";
                 }
             }
         }
-    ]
+    ],
 
 })
 export class UsuariosModule

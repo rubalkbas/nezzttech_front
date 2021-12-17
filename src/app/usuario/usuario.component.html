@@ -1,6 +1,133 @@
-<div
-    class="p-3 pt-0"
-   >
-    <div class="relative flex w-full h-full rounded-lg">
+<div class="flex flex-col flex-auto min-w-0">
+
+    <!-- Main -->
+    <div class="flex-auto p-6 sm:p-10">
+
+        <!-- CONTENT GOES HERE -->
+        <div class="h-400 min-h-400 max-h-400 border-2 border-dashed border-gray-300 rounded-2xl">
+
+            <div class="app-content content">
+
+                <div class="content-card">
+            
+                    <mat-card id="card">
+            
+                        <mat-card-header id="Cardheader">
+                            <mat-card-title id="cardTitle">Busqueda: Asuntos
+                            </mat-card-title>
+                         
+                        </mat-card-header>
+            
+                        <mat-card-content id="content">
+
+                           
+                            <div  fxLayout="column wrap" fxLayoutAlign="center" style="margin-top:10px" align="end">
+                            
+                                <mat-form-field appearance="fill"  style="width:24%">
+                                    <mat-label>Busquedas Grabadas </mat-label>
+                                    <select matNativeControl required>
+                                      <option value="volvo">Busqueda 1</option>
+                                      <option value="saab">Busqueda 2</option>
+                                      <option value="mercedes">Busqueda 3</option>
+                                      <option value="audi">Busqueda 4</option>
+                                    </select>
+                                  </mat-form-field>
+                            </div>
+                            
+            
+                            <div  fxLayout="column wrap" fxLayoutAlign="center" style="margin-top:10px">
+            
+                                <mat-form-field style="width:24%" appearance="outline">
+                                    <mat-label id="labelsolicitante" for="solicitante">Solicitante</mat-label>
+                                    <input matInput id="solicitanteUsuario" formControlName="solicitante" placeholder="Solicitante" >
+                                  </mat-form-field>
+                            
+                                  <mat-form-field  style="width:24%" appearance="outline">
+                                    <mat-label id="labelCentro" for="centro">Centro</mat-label>
+                                    <input matInput    id="centroUsuario" formControlName="centro" placeholder="Centro" >                     
+                                  </mat-form-field>
+                      
+                                  <mat-form-field  style="width:24%" appearance="outline">
+                                    <mat-label id="labelFechaCreacion" for="fechaCreacion">Fecha Creacion</mat-label>
+                                    <input id="fechaCreacionUsuario" matInput placeholder="Fecha Creacion" formControlName="fechaCreacion" >
+                                  </mat-form-field>
+              
+                                  <mat-form-field  style="width:24%" appearance="outline">
+                                      <mat-label id="labelPeriodoCreacion" for="periodoCreacion">Periodo de Creacion</mat-label>
+                                      <input id="apellidoMtaerno" matInput placeholder="Periodo de Creacion" formControlName="periodoCreacion" >
+                                    </mat-form-field>
+                            
+                            </div>
+
+                            <div  fxLayout="column wrap" fxLayoutAlign="center" style="margin-top:10px">
+                                <mat-form-field style="width:24%" appearance="outline">
+                                  <mat-label id="labelNumeroAsunto" for="numeroAsunto">Numero de Asunto</mat-label>
+                                  <input matInput id="numeroAsuntoUsuario" formControlName="numeroAsunto" placeholder="Numero de Asunto" >
+                                </mat-form-field>
+                    
+                                <mat-form-field  style="width:24%" appearance="outline">
+                                  <mat-label id="labelDescripcionAsunto" for="descripcionAsunto">Descripcion breve Asunto</mat-label>
+                                  <input matInput    id="centroUsuario" formControlName="descripcionAsunto" placeholder="Descripcion breve Asunto" >                     
+                                </mat-form-field>
+                    
+                                <mat-form-field  style="width:24%" appearance="outline">
+                                  <mat-label id="labelEstadoAsunto" for="estadoAsunto">Estado del Asunto</mat-label>
+                                  <input id="fechaCreacionUsuario" matInput placeholder="Estado del Asunto" formControlName="estadoAsunto" >
+                                </mat-form-field>
+            
+                                <mat-form-field  style="width:24%" appearance="outline">
+                                    <mat-label id="labelCategoria" for="categoria">Categoria</mat-label>
+                                    <input id="apellidoMtaerno" matInput placeholder="Categoria" formControlName="categoria" >
+                                  </mat-form-field>
+                    
+                              </div>
+
+                              <div  fxLayout="column wrap" fxLayoutAlign="right" style="margin-top:10px" align="end">
+
+                                <mat-form-field style="width:20%" appearance="outline">
+                                    <mat-label id="labelBusqueda" for="busqueda">Guardar Busqueda como</mat-label>
+                                    <input matInput id="numeroAsuntoUsuario" formControlName="busqueda" placeholder="Guardar Busqueda como" >
+                                  </mat-form-field>
+              
+                                  <button mat-raised-button  color="warn"
+                                      style="width:20%; margin-left: 10px;" >
+                                      Guardar
+                                      </button>
+                            
+                            </div>
+
+                              <hr style="width:100%;">
+
+                              <div  fxLayout="column wrap" fxLayoutAlign="center" style="margin-top:10px" align="end" >
+
+                                <button mat-raised-button  color="warn"
+                                style="width:20%; margin-right: 10px;">
+                                Buscar
+                                </button>
+        
+                                <button mat-raised-button  color="warn" style="width:20%; margin-right: 10px;">
+                                Limpiar
+                                </button>
+                    
+                               
+                    
+                              </div>
+
+                              
+            
+                        </mat-card-content>
+            
+                    </mat-card>
+            
+                </div>
+            
+            </div>
+
+
+
+        </div>
+
     </div>
+
 </div>
+
