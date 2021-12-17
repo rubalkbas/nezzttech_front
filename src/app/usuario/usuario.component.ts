@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { FormControl } from "@angular/forms";
 
 
 @Component({
@@ -7,6 +8,8 @@ import { Component, OnInit } from "@angular/core";
     styleUrls: ["./usuario.component.scss"],
   })
 export class UsuarioComponent implements OnInit {
+
+
 
     constructor( ) { }
 
