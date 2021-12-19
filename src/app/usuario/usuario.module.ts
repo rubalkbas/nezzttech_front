@@ -20,6 +20,7 @@ import moment from "moment";
 import { UsuarioComponent } from "./usuario.component";
 import { usuariosRoutes } from "./usuario.routing";
 import {MatCardModule} from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
     declarations: [ UsuarioComponent ], 
@@ -39,7 +40,8 @@ import {MatCardModule} from '@angular/material/card';
         MatProgressBarModule,
         SharedModule,
         FormsModule,
-        MatCardModule
+        MatCardModule,
+        MatTableModule,
         
     ],
     providers   : [
