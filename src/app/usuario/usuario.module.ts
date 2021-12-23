@@ -1,7 +1,7 @@
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/compiler";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatMomentDateModule } from "@angular/material-moment-adapter";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCheckboxModule } from "@angular/material/checkbox";
@@ -42,6 +42,9 @@ import { MatTableModule } from '@angular/material/table';
         FormsModule,
         MatCardModule,
         MatTableModule,
+        ReactiveFormsModule,
+        SharedModule,
+        
         
     ],
     providers   : [

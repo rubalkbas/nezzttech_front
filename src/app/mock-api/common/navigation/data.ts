@@ -12,10 +12,11 @@ export const defaultNavigation: FuseNavigationItem[] = [
     {
         id   : 'apps.scrumboard',
         title: 'Alta Asuntos',
-        type    : 'collapsable',
+       // type    : 'collapsable',
+        type : 'basic',
         icon : 'heroicons_outline:view-boards',
-        link : '/peticionario/asuntos',
-        children: [
+        link : '/peticionario/altaAsuntos',
+        /*children: [
             {
                 id   : 'apps.project',
                 title: 'Mas Asuntos',
@@ -44,28 +45,28 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 icon : 'heroicons_outline:currency-dollar',
                 link : '/dashboards/crypto'
             }
-        ]
+        ]*/
     },
     {
         id   : 'apps.scrumboard',
         title: 'Busqueda de Asuntos',
         type : 'basic',
         icon : 'heroicons_outline:view-boards',
-        link : '/peticionario/asuntos1'
+        link : '/peticionario/asuntos'
     },
     {
         id   : 'apps.scrumboard',
         title: 'Busqueda de quejas',
         type : 'basic',
         icon : 'heroicons_outline:view-boards',
-        link : '/peticionario/asuntos2'
+        //link : '/peticionario/asuntos2'
     },
     {
         id   : 'apps.scrumboard',
         title: 'Buscador de soluciones',
         type : 'basic',
         icon : 'heroicons_outline:view-boards',
-        link : '/peticionario/asuntos3'
+        //link : '/peticionario/asuntos3'
     },
 ];
 
