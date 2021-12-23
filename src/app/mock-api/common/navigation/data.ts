@@ -18,28 +18,28 @@ export const defaultNavigation: FuseNavigationItem[] = [
         children: [
             {
                 id   : 'apps.project',
-                title: 'Project',
+                title: 'Mas Asuntos',
                 type : 'basic',
                 icon : 'heroicons_outline:clipboard-check',
                 link : '/peticionario/asuntos'
             },
             {
                 id   : 'apps.analytics',
-                title: 'Analytics',
+                title: 'Mas Asuntos',
                 type : 'basic',
                 icon : 'heroicons_outline:chart-pie',
                 link : '/dashboards/analytics'
             },
             {
                 id   : 'apps.finance',
-                title: 'Finance',
+                title: 'Mas Asuntos',
                 type : 'basic',
                 icon : 'heroicons_outline:cash',
                 link : '/dashboards/finance'
             },
             {
                 id   : 'apps.crypto',
-                title: 'Crypto',
+                title: 'Mas Asuntos',
                 type : 'basic',
                 icon : 'heroicons_outline:currency-dollar',
                 link : '/dashboards/crypto'
