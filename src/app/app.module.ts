@@ -13,6 +13,8 @@ import { LayoutModule } from 'app/layout/layout.module';
 import { AppComponent } from 'app/app.component';
 import { appRoutes } from 'app/app.routing';
 import { UsuariosModule } from './usuario/usuario.module';
+import { AppService } from './app.service';
+import { ProductoService } from './_services/productos.service';
 
 const routerConfig: ExtraOptions = {
     preloadingStrategy       : PreloadAllModules,
@@ -43,6 +45,11 @@ const routerConfig: ExtraOptions = {
     ],
     bootstrap   : [
         AppComponent
+    ],
+    providers: [
+        AppService,
+        ProductoService
+
     ]
 })
 export class AppModule

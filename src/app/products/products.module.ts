@@ -28,6 +28,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { AppService } from 'app/app.service';
+import { ProductoService } from 'app/_services/productos.service';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatStepperModule,
     MatToolbarModule
 
+  ],
+  providers: [
+      AppService,
+      ProductoService
+
   ]
 })
-export class ProductsModule { }
+export class AltaAsuntoModule { }
