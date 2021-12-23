@@ -69,6 +69,7 @@ export const appRoutes: Route[] = [
             {path: 'peticionario', children: [
                 {path: 'scrumboard', loadChildren: () => import('app/scrumboard/scrumboard.module').then(m => m.ScrumboardModule)},
                 {path: 'asuntos', loadChildren: () => import('app/usuario/usuario.module' ).then(m => m.UsuariosModule)},
+                {path: 'altaAsuntos', loadChildren: () => import('app/products/products.module' ).then(m => m.ProductsModule)},
             ]},
 
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
