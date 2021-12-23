@@ -30,6 +30,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { AppService } from 'app/app.service';
 import { ProductoService } from 'app/_services/productos.service';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 @NgModule({
   declarations: [
@@ -63,8 +65,8 @@ import { ProductoService } from 'app/_services/productos.service';
     MatTableModule,
     MatTooltipModule,
     MatStepperModule,
-    MatToolbarModule
-
+    MatToolbarModule,
+    MatRadioModule
   ],
   providers: [
       AppService,
