@@ -7,7 +7,7 @@
             </div>
 
             <!-- Title -->
-            <div class="mt-8 text-4xl font-extrabold tracking-tight leading-tight">Sign in</div>
+            <div class="mt-8 text-4xl font-extrabold tracking-tight leading-tight">Inicio de sesion</div>
             <div class="flex items-baseline mt-0.5 font-medium">
                 <div>Don't have an account?</div>
                 <a
@@ -30,7 +30,7 @@
             <!-- Sign in form -->
             <form
                 class="mt-8"
-                [formGroup]="signInForm"
+                [formGroup]="inicioSesionForm"
                 #signInNgForm="ngForm">
 
                 <!-- Email field -->
@@ -40,10 +40,10 @@
                         id="email"
                         matInput
                         [formControlName]="'email'">
-                    <mat-error *ngIf="signInForm.get('email').hasError('required')">
+                    <mat-error *ngIf="inicioSesionForm.get('email').hasError('required')">
                         Email address is required
                     </mat-error>
-                    <mat-error *ngIf="signInForm.get('email').hasError('email')">
+                    <mat-error *ngIf="inicioSesionForm.get('email').hasError('email')">
                         Please enter a valid email address
                     </mat-error>
                 </mat-form-field>
@@ -94,13 +94,13 @@
                     class="fuse-mat-button-large w-full mt-6"
                     mat-flat-button
                     [color]="'primary'"
-                    [disabled]="signInForm.disabled"
-                    (click)="signIn()">
-                    <span *ngIf="!signInForm.disabled">
+                    [disabled]="inicioSesionForm.disabled"
+                    (click)="inicioSesion()">
+                    <span *ngIf="!inicioSesionForm.disabled">
                         Sign in
                     </span>
                     <mat-progress-spinner
-                        *ngIf="signInForm.disabled"
+                        *ngIf="inicioSesionForm.disabled"
                         [diameter]="24"
                         [mode]="'indeterminate'"></mat-progress-spinner>
                 </button>

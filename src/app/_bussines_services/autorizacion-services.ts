@@ -1,8 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { ParametrosRequest } from "app/_bussines_model/parametros";
-import { ServiceResponse } from "app/_bussines_model/service-response";
-import { SettingsApp } from "app/_common-model/settings-app";
 import { catchError, Observable, of, retry } from "rxjs";
 import * as global from './variablesGlobales';
 
@@ -12,7 +10,7 @@ import * as global from './variablesGlobales';
   })
 export class AutorizacionService {
 
-    apiURL = SettingsApp.app.urlBack + '/authentication';
+    apiURL =  global.urlServidor + '/authentication';
 
     httpOptions = {
         headers: new HttpHeaders({
@@ -27,7 +25,7 @@ export class AutorizacionService {
 
       iniciarSesion(parametrosRequest: ParametrosRequest): Observable<any> {
 
-        let url =  global.urlServidor + '/inicioSesion';
+        let url =  this.apiURL + '/inicioSesion';
 
         return this.http.post( url, parametrosRequest , this.httpOptions).pipe(
             retry(1),
@@ -49,8 +47,8 @@ export class AutorizacionService {
             retry(1),
             catchError(
               this.handleError<any>(
-                'Error al iniciar sesion',
-                'Inicio Sesion'
+                'Error al registrar usuario',
+                'Registro Usuario'
               )
             )
           );  
