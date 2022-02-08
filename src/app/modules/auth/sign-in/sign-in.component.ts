@@ -80,8 +80,8 @@ export class AuthSignInComponent implements OnInit
                 if(data.valor == 0){
         
                     Swal.fire({
-                        position: 'top-end',
-                        icon: 'error',
+                        position: 'center',
+                        icon: 'warning',
                         title: data.mensaje ,
                         showConfirmButton: false,
                         timer: 2000
@@ -90,8 +90,8 @@ export class AuthSignInComponent implements OnInit
                 }else if(data.valor == 1){
         
                     Swal.fire({
-                        position: 'top-end',
-                        icon: 'error',
+                        position: 'center',
+                        icon: 'warning',
                         title: data.mensaje ,
                         showConfirmButton: false,
                         timer: 2000
@@ -106,6 +106,7 @@ export class AuthSignInComponent implements OnInit
                     this.isLoggedIn = true;
                     this.roles = this.tokenStorage.getUser().roles;
                     window.location.reload();
+                    
                     this._router.navigate(['/'])
                     
                 }
@@ -116,7 +117,7 @@ export class AuthSignInComponent implements OnInit
                 this.isLoginFailed = true;
         
                 Swal.fire({
-                    position: 'top-end',
+                    position: 'center',
                     icon: 'error',
                     title: 'ERROR, AL INICIAR SESION!!!' ,
                     showConfirmButton: false,

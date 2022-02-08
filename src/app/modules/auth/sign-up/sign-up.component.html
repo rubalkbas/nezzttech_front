@@ -7,12 +7,12 @@
             </div>
 
             <!-- Title -->
-            <div class="mt-8 text-4xl font-extrabold tracking-tight leading-tight">Sign up</div>
+            <div class="mt-8 text-4xl font-extrabold tracking-tight leading-tight">Registrate</div>
             <div class="flex items-baseline mt-0.5 font-medium">
-                <div>Already have an account?</div>
+                <div>¿Ya tienes una cuenta?</div>
                 <a
                     class="ml-1 text-primary-500 hover:underline"
-                    [routerLink]="['/sign-in']">Sign in
+                    [routerLink]="['/sign-in']">Inicia Sesión
                 </a>
             </div>
 
@@ -30,38 +30,38 @@
             <!-- Sign Up form -->
             <form
                 class="mt-8"
-                [formGroup]="signUpForm">
+                [formGroup]="registroUsuarioForm">
 
                 <!-- Name field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Full name</mat-label>
+                    <mat-label>Usuario</mat-label>
                     <input
-                        id="name"
+                        id="username"
                         matInput
-                        [formControlName]="'name'">
-                    <mat-error *ngIf="signUpForm.get('name').hasError('required')">
-                        Full name is required
+                        [formControlName]="'username'">
+                    <mat-error *ngIf="registroUsuarioForm.get('username').hasError('required')">
+                        Se requiere el nombre de usuario
                     </mat-error>
                 </mat-form-field>
 
                 <!-- Email field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Email address</mat-label>
+                    <mat-label>Correo electronico</mat-label>
                     <input
                         id="email"
                         matInput
                         [formControlName]="'email'">
-                    <mat-error *ngIf="signUpForm.get('email').hasError('required')">
-                        Email address is required
+                    <mat-error *ngIf="registroUsuarioForm.get('email').hasError('required')">
+                        Se requiere el correo electronico
                     </mat-error>
-                    <mat-error *ngIf="signUpForm.get('email').hasError('email')">
-                        Please enter a valid email address
+                    <mat-error *ngIf="registroUsuarioForm.get('email').hasError('email')">
+                        Por favor, introduce una dirección de correo electrónico válida
                     </mat-error>
                 </mat-form-field>
 
                 <!-- Password field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Password</mat-label>
+                    <mat-label>Contraseña</mat-label>
                     <input
                         id="password"
                         matInput
@@ -83,18 +83,21 @@
                             [svgIcon]="'heroicons_solid:eye-off'"></mat-icon>
                     </button>
                     <mat-error>
-                        Password is required
+                        Contraseña requerida
                     </mat-error>
                 </mat-form-field>
 
-                <!-- Company field -->
+
+                <!-- Name field -->
                 <mat-form-field class="w-full">
-                    <mat-label>Company</mat-label>
-                    <input
-                        id="company-confirm"
-                        matInput
-                        [formControlName]="'company'">
+                    <mat-label>Confirmar Contraseña</mat-label>
+                    <input id="confirmPassword"  matInput placeholder="Confirmar Contraseña" [formControlName]="'confirmPassword'" type="password" required>
+
+                    <mat-error *ngIf="registroUsuarioForm.get('confirmPassword').hasError('required')">Confirmacion de contraseña obligatoria.</mat-error>
+                    <mat-error *ngIf="registroUsuarioForm.get('confirmPassword').hasError('mismatchedPasswords')">La contraseña no coincide.</mat-error>
                 </mat-form-field>
+
+ 
 
                 <!-- ToS and PP -->
                 <div class="inline-flex items-end w-full mt-1.5">
@@ -119,13 +122,13 @@
                     class="fuse-mat-button-large w-full mt-6"
                     mat-flat-button
                     [color]="'primary'"
-                    [disabled]="signUpForm.disabled"
-                    (click)="signUp()">
-                    <span *ngIf="!signUpForm.disabled">
+                    [disabled]="registroUsuarioForm.disabled"
+                    (click)="registroUsuario()">
+                    <span *ngIf="!registroUsuarioForm.disabled">
                         Create your free account
                     </span>
                     <mat-progress-spinner
-                        *ngIf="signUpForm.disabled"
+                        *ngIf="registroUsuarioForm.disabled"
                         [diameter]="24"
                         [mode]="'indeterminate'"></mat-progress-spinner>
                 </button>

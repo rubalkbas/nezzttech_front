@@ -41,7 +41,7 @@ export class AutorizacionService {
 
       registroUsuario(parametrosRequest: ParametrosRequest): Observable<any> {
 
-        let url =  global.urlServidor + '/registroUsuario';
+        let url =  this.apiURL + '/registroUsuario';
 
         return this.http.post( url, parametrosRequest , this.httpOptions).pipe(
             retry(1),

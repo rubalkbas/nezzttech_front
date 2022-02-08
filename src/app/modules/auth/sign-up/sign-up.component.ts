@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseAlertType } from '@fuse/components/alert';
 import { AuthService } from 'app/core/auth/auth.service';
+import { ParametrosRequest } from 'app/_bussines_model/parametros';
+import { AutorizacionService } from 'app/_bussines_services/autorizacion-services';
+import { emailValidator, matchingPasswords } from '../app-validators';
 
 @Component({
     selector     : 'auth-sign-up',
@@ -11,72 +14,75 @@ import { AuthService } from 'app/core/auth/auth.service';
     encapsulation: ViewEncapsulation.None,
     animations   : fuseAnimations
 })
-export class AuthSignUpComponent implements OnInit
-{
+export class AuthSignUpComponent implements OnInit {
+
+    parametrosRequest:ParametrosRequest;
+
+
+    
     @ViewChild('signUpNgForm') signUpNgForm: NgForm;
 
     alert: { type: FuseAlertType; message: string } = {
         type   : 'success',
         message: ''
     };
-    signUpForm: FormGroup;
+    registroUsuarioForm: FormGroup;
     showAlert: boolean = false;
 
     /**
      * Constructor
      */
     constructor(
+
+        private _autorizacionService:AutorizacionService,
+        
         private _authService: AuthService,
         private _formBuilder: FormBuilder,
         private _router: Router
-    )
-    {
-    }
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Lifecycle hooks
-    // -----------------------------------------------------------------------------------------------------
+    ) { }
 
     /**
      * On init
      */
-    ngOnInit(): void
-    {
-        // Create the form
-        this.signUpForm = this._formBuilder.group({
-                name      : ['', Validators.required],
-                email     : ['', [Validators.required, Validators.email]],
-                password  : ['', Validators.required],
-                company   : [''],
-                agreements: ['', Validators.requiredTrue]
-            }
-        );
-    }
+    ngOnInit() {
 
-    // -----------------------------------------------------------------------------------------------------
-    // @ Public methods
-    // -----------------------------------------------------------------------------------------------------
+            this.registroUsuarioForm = this._formBuilder.group({
+                username  : ['', Validators.required],
+                email     : ['', Validators.compose([Validators.required, emailValidator])],
+                password  : ['', Validators.compose([Validators.required, Validators.minLength(6)])],
+                confirmPassword: ['', Validators.required]
+              },{validator: matchingPasswords('password', 'confirmPassword')});
+
+    }
 
     /**
      * Sign up
      */
-    signUp(): void
-    {
+     registroUsuario(){
+
         // Do nothing if the form is invalid
-        if ( this.signUpForm.invalid )
+        if ( this.registroUsuarioForm.invalid )
         {
             return;
         }
 
         // Disable the form
-        this.signUpForm.disable();
+        this.registroUsuarioForm.disable();
 
         // Hide the alert
         this.showAlert = false;
 
+
+        this.parametrosRequest = new ParametrosRequest();
+        this.parametrosRequest.username = this.registroUsuarioForm.get('username').value;
+        this.parametrosRequest.correo = this.registroUsuarioForm.get('email').value;
+        this.parametrosRequest.pass = this.registroUsuarioForm.get('password').value;
+        
+
+
         // Sign up
-        this._authService.signUp(this.signUpForm.value)
-            .subscribe(
+        this._autorizacionService.registroUsuario(this.parametrosRequest).subscribe(
                 (response) => {
 
                     // Navigate to the confirmation required page
@@ -85,7 +91,7 @@ export class AuthSignUpComponent implements OnInit
                 (response) => {
 
                     // Re-enable the form
-                    this.signUpForm.enable();
+                    this.registroUsuarioForm.enable();
 
                     // Reset the form
                     this.signUpNgForm.resetForm();
