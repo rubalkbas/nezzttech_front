@@ -49,6 +49,7 @@ export class AuthSignInComponent implements OnInit
         private _formBuilder: FormBuilder,
         private tokenStorage: TokenStorageService,
         private _router: Router,   
+        private _activatedRoute: ActivatedRoute,
         
     ) {   }
 
@@ -105,9 +106,14 @@ export class AuthSignInComponent implements OnInit
                     this.isLoginFailed = false;
                     this.isLoggedIn = true;
                     this.roles = this.tokenStorage.getUser().roles;
-                    window.location.reload();
+                    //window.location.reload(); es un f5
                     
-                    this._router.navigate(['/'])
+                    //this._router.navigate(['/']);
+
+                    const redirectURL = this._activatedRoute.snapshot.queryParamMap.get('redirectURL') || '/signed-in-redirect';
+
+                    // Navigate to the redirect url
+                    this._router.navigateByUrl(redirectURL);
                     
                 }
                 },

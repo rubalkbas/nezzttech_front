@@ -1,0 +1,229 @@
+<div class="flex flex-col flex-auto min-w-0">
+
+    <!-- Main -->
+    <div class="flex-auto p-6 sm:p-10">
+
+         <!-- CONTENT GOES HERE -->
+         <div class="h-400 min-h-400 max-h-400 border-2 border-dashed border-gray-300 rounded-2xl">
+
+            <div class="app-content content">
+
+                <div class="content-card">
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{(id) ? 'Edit' : 'Registrar Asunto'}} </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+
+
+            <mat-accordion>
+                <!-- #docregion basic-panel -->
+                <!-- #docregion hide-toggle -->
+                <mat-expansion-panel hideToggle [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            {{cateTot}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <!-- aqui va el contenido del priomer exopancion panel -->
+                    <mat-toolbar color="primary">
+                        <button mat-icon-button>
+                            <mat-icon>home</mat-icon>
+                        </button>
+                        <div> Selecciona tu Categoria de Asunto</div>
+                        <div fxFlex style="margin:auto;"></div>
+                        <button mat-icon-button matTooltip="Clear all steps" (click)="onRemoveAll()">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </mat-toolbar>
+                    <mat-horizontal-stepper [linear]="true" #stepper (selectionChange)="onStepChange($event)">
+                        <mat-step *ngFor="let step of newSteps; let i = index">
+                            <ng-template matStepLabel>{{step.title || 'Elige una Categoria!'}} <mat-icon
+                                    style="vertical-align:middle" (click)="stepSeleccionado($event,i)">trending_flat
+                                </mat-icon>
+                            </ng-template>
+                            <mat-radio-group class="example-radio-group" (change)="changeStep($event, i)">
+                                <mat-radio-button class="example-radio-button" *ngFor="let option of categoriasLista"
+                                    [value]="option.nivelcategoria">
+                                    {{option.descCategoria}}
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </mat-step>
+                        <mat-step>
+                            <ng-template matStepLabel>
+
+                            </ng-template>
+                        </mat-step>
+                    </mat-horizontal-stepper>
+                    <mat-action-row>
+                        <!--<button mat-button color="primary" (click)="nextStep()">Next</button>-->
+                    </mat-action-row>
+                </mat-expansion-panel>
+
+
+
+                <!-- #enddocregion basic-panel -->
+                <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle [disabled]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Ingresa la Información de tu Asunto
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <!-- aqui va el contenido del segundo exopancion panel -->
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off" fxLayout="row wrap">
+                        
+
+                        <div  fxLayout="column wrap" fxLayoutAlign="center" style="margin-top:10px">
+            
+                            <mat-form-field style="width:24%" appearance="outline">
+                                <mat-label id="labelsolicitante" for="solicitante">Solicitante</mat-label>
+                                <input matInput id="solicitanteUsuario" formControlName="solicitante" placeholder="Solicitante" >
+                              </mat-form-field>
+                        
+                              <mat-form-field  style="width:24% ;margin: 1em;" appearance="outline" >
+                                <mat-label id="labelCentro" for="centro">Numero de asunto</mat-label>
+                                <input matInput    id="centroUsuario" formControlName="centro" placeholder="Centro" >                     
+                              </mat-form-field>
+                  
+                              <mat-form-field  style="width:24% ;margin: 1em;" appearance="outline">
+                                <mat-label id="labelFechaCreacion" for="fechaCreacion">Fecha Creacion Asunto</mat-label>
+                                <input id="fechaCreacionUsuario" matInput placeholder="Fecha Creacion" formControlName="fechaCreacion" >
+                              </mat-form-field>
+          
+                             
+                                <mat-form-field style="width:24%" appearance="outline">
+                                    <mat-label>Categoria</mat-label>
+                                    <mat-select formControlName="size" multiple>
+                                        <mat-option *ngFor="let size of sizes" [value]="size">
+                                            <span>{{size}}</span>
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                           
+                        
+                        </div>
+
+                        <div  fxLayout="column wrap" fxLayoutAlign="center" style="margin-top:10px">
+            
+                            <mat-form-field style="width:24%" appearance="outline">
+                                <mat-label id="labelsolicitante" for="solicitante">Resolutor</mat-label>
+                                <input matInput id="solicitanteUsuario" formControlName="solicitante" placeholder="Solicitante" >
+                              </mat-form-field>
+                        
+                              <mat-form-field  style="width:24%;margin: 1em;" appearance="outline">
+                                <mat-label id="labelCentro" for="centro">Centro</mat-label>
+                                <input matInput    id="centroUsuario" formControlName="centro" placeholder="Centro" >                     
+                              </mat-form-field>
+                  
+                             
+                              <mat-form-field style="width:24%;margin: 1em;" appearance="outline">
+                                    <mat-label>Estatus</mat-label>
+                                    <mat-select formControlName="size" multiple>
+                                        <mat-option *ngFor="let size of sizes" [value]="size">
+                                            <span>{{size}}</span>
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            
+          
+                              <mat-form-field  style="width:24%" appearance="outline">
+                                  <mat-label id="labelPeriodoCreacion" for="periodoCreacion">Orden de servicio</mat-label>
+                                  <input id="apellidoMtaerno" matInput placeholder="Periodo de Creacion" formControlName="periodoCreacion" >
+                                </mat-form-field>
+                        
+                        </div>
+
+                        <div  fxLayout="column wrap" fxLayoutAlign="center" style="margin-top:10px" align="end" >
+
+                            <button mat-raised-button  color="warn"
+                            style="width:20%; margin-right: 10px;">
+                            Buscar
+                            </button>
+    
+                            <button mat-raised-button  color="warn" style="width:20%; margin-right: 10px;">
+                            Limpiar
+                            </button>
+                
+                           
+                
+                          </div>
+
+                        
+                    </form>
+                    <mat-action-row>
+                        <button mat-button color="warn" (click)="prevStep()">Regresar</button>
+                    </mat-action-row>
+                    <!-- aqui cierra el form y el panel expandible-->
+
+                    <br>
+
+
+                    <div class="btn-group btn-group-sm float-right" role="group"  align="end" style="margin-right: 20px;">
+
+                        <input type="image" alt="Imagen de exportacion" name="generaExcel" 
+                        src="assets/images/ico/Excel-2013.ico" style="
+                        width: 32px;
+                        height: 32px;
+                    ">
+        
+                </div>
+
+                <mat-label><h2> Lista de Resultados </h2>  </mat-label>
+
+                    <div class="mat-elevation-z8">
+                        <table mat-table [dataSource]="dataSource">
+                      
+                          <!-- Position Column -->
+                          <ng-container matColumnDef="position">
+                            <th mat-header-cell *matHeaderCellDef> No. </th>
+                            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                          </ng-container>
+                      
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Fecha creacion </th>
+                            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                          </ng-container>
+                      
+                          <!-- Weight Column -->
+                          <ng-container matColumnDef="weight">
+                            <th mat-header-cell *matHeaderCellDef> Centro </th>
+                            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                          </ng-container>
+                      
+                          <!-- Symbol Column -->
+                          <ng-container matColumnDef="symbol">
+                            <th mat-header-cell *matHeaderCellDef> Estado </th>
+                            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                          </ng-container>
+                      
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                      
+                        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                                       showFirstLastButtons 
+                                       aria-label="Select page of periodic elements">
+                        </mat-paginator>
+                      </div>
+
+                </mat-expansion-panel>
+
+
+            </mat-accordion>
+        </mat-card-content>
+    </mat-card>
+
+</div>
+</div>
+</div>
+</div>
+</div>
